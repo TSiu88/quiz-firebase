@@ -1,15 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AllQuizList from './AllQuizList';
 import TakeQuizForm from './TakeQuizForm';
+import { withFirestore } from 'react-redux-firebase'
 
-function TakeQuizControl() {
+
+function TakeQuizControl(props) {
+
+  const [selectedQuiz, setQuiz] = useState(null);
+
+  const handleChangingSelectedQuiz = (id) => {
+    props.firestore.get({
+      collection: 'quizzes', 
+      doc: id
+    }).then((quiz) => {
+      const firestoreQuiz = {
+        quizName: quiz.quizName
+        // names: ticket.get("names"),
+        // location: ticket.get("location"),
+        // issue: ticket.get("issue"),
+        // id: ticket.id
+      }
+      setQuiz(firestoreQuiz);
+    })
+  }
+
+  let currentlyVisibleState;
+
+  const selectQuiz = () => {
+    if (selectedQuiz != null) {
+      currentlyVisibleState = 
+      <TakeQuizForm 
+        quiz = {selectedQuiz}
+        />;
+      // <button onClick={() => {setQuiz(null)}}>Back to Quiz List</button>
+    } else {
+      currentlyVisibleState = 
+      <AllQuizList
+        onQuizSelection={handleChangingSelectedQuiz}
+      />; 
+    }
+  }
+
+  selectQuiz();
+
   return (
     <React.Fragment>
-      <h4>This is TakeQuizControl</h4>
-      {/* <AllQuizList /> */}
-      {/* <TakeQuizForm /> */}
+      {currentlyVisibleState}
     </React.Fragment>
   );
 }
 
-export default TakeQuizControl;
+export default withFirestore(TakeQuizControl);

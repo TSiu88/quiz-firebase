@@ -2,7 +2,10 @@ import React from 'react';
 
 function Header() {
   return (
-    <h1>Firebase Quiz</h1>
+    <React.Fragment>
+      <h1>Firebase Quiz</h1>
+      <hr />
+    </React.Fragment>
   )
 }
 

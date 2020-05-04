@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import CreateQuizControl from './CreateQuiz/CreateQuizControl';
 import TakeQuizControl from './TakeQuiz/TakeQuizControl';
+import './App.css';
 
 function QuizControl() {
 
   // DEFAULT STATE ===============================
   const [createQuizControlVisible, setCreateQuizControlVisible] = useState(false);
   const [takeQuizControlVisible, setTakeQuizControlVisible] = useState(true);
-  // selectedQuiz: null
-
-  // const handleCreateQuizDisplay = () => {
-  //   setCreateQuizControlVisible(true);
-  //   setTakeQuizControlVisible(false);
-  // }
+  // =============================================
 
   const handleTakeQuizDisplay = () => {
     setCreateQuizControlVisible(!createQuizControlVisible);
@@ -35,7 +31,6 @@ function QuizControl() {
 
   return (
     <React.Fragment>
-      <h3>QuizControl</h3>
       <button onClick={() => {handleTakeQuizDisplay()}}>{buttonText}</button>
       {currentlyVisibleComponent}
     </React.Fragment>
