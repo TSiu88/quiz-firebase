@@ -1,68 +1,142 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# _[Firebase Quiz](https://github.com/ayohana/quiz-firebase)_
 
-## Available Scripts
+#### _Quiz in Firebase, 05.04.2020_
 
-In the project directory, you can run:
+#### By _**Tiffany Siu, Adela Darmansyah, Rachel Schieferstein**_
 
-### `npm start`
+<!-- [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive) -->
+<!-- [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) -->
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+![LastCommit](https://img.shields.io/github/last-commit/ayohana/quiz-firebase)
+![Languages](https://img.shields.io/github/languages/top/ayohana/quiz-firebase)
+[![MIT license](https://img.shields.io/badge/License-MIT-orange.svg)](https://lbesson.mit-license.org/)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
+## Table of Contents
+1. [Description](#description)
+    - [Component Diagram/Wireframe](#component-diagram/wireframe)
+    - [Database Structure](#database-structure)
+2. [Setup/Installation Requirements](#setup/installation-requirements)
+    - [Requirements to Run](#requirements-to-run)
+    - [Instructions](#instructions)
+    - [Other Technologies Used](#other-technologies-used)
+3. [Notable Features](#notable-features)
+4. [Specifications](#specifications)
+    - [User Stories](#user-stories)
+5. [Screenshots](#screenshots)
+6. [Test Case Example](#test-case-example)
+7. [Known Bugs](#known-bugs)
+8. [Support and Contact Details](#support-and-contact-details)
+9. [License](#license)
+---
+## Description
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+This is an application that allows a user to complete a quiz or survey. Users should be able to create new quizzes or surveys while other users should have the ability to fill out those surveys.
 
-### `npm test`
+### Component Diagram/Wireframe
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="./public/quiz-firebase-wireframe.png">
 
-### `npm run build`
+### Database Structure
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="./public/quiz-firebase-data-structure.png">
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Setup/Installation Requirements
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Requirements to Run
+* _Web Browser_
+* _Webpack_
+* _Node.js_
+* _NPM_
 
-### `npm run eject`
+### Instructions
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Download and install Node.js from the [official website](https://nodejs.org/en/download/)
+2. Clone the [repository](https://github.com/ayohana/quiz-firebase.git) from my [GitHub page](https://github.com/ayohana/)
+3. Use a command line/Bash to move to the project directory with `cd project-directory`
+4. Run `npm install` to get all dependencies. 
+5. Run `npm run start` to start up the program
+6. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Other Technologies Used
+* _HTML_
+* _CSS_
+* _Javascript_
+* _React_
+* _Redux_
+* _Firebase_
+* _Bootstrap 4.4.1_
+* _ESLint_
+* _Babel_
+* _Jest_
+* _Markdown_
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Notable Features
+<!-- _features that make project stand out_ -->
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Specifications
 
-## Learn More
+<!-- <details>
+  <summary>Click to expand to view Specifications</summary>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Specification | Input | Output |
+| :-------------     | :------------- | :------------- |
+| The program displays welcome message and menu with prices | Application start | Welcome message and menu displayed |
+| The program displays special deals in readable format | Application start | Special deals displayed ("Buy 2, get 1 free" "3 for $5") |
+| The program takes input of user that is not an integer, then assume 0 ordered | Bread="aaa", Pastry="" | Bread=0, Pastry=0 |
+| The program takes number of loaves of bread and pastries and displays totals | Bread=4, Pastry=4 | Bread=$20, Pastry=$8, Total=$28 |
+| If input qualifies for special deals, costs calculated using discounted price | Bread=3, Pastry=3 | Bread=$10, Pastry=$5, Total=$15 |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+</details> -->
 
-### Code Splitting
+### User Stories
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+* A user should be able to create, update and delete a survey. All surveys should be stored in the database.
+* A user should be able to fill out and submit surveys. Survey results should be submitted to the database.
+* A user should be able to sign up, sign in, and sign out.
+* A user should have their own dashboard which lists the surveys they've created.
 
-### Analyzing the Bundle Size
+## Screenshots
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+<!-- _Here is a snippet of what the input looks like:_
 
-### Making a Progressive Web App
+![Snippet of input fields](img/snippet1.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+_Here is a preview of what the output looks like:_
 
-### Advanced Configuration
+![Snippet of output box](img/snippet2.png) -->
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+<!-- <details>
+  <summary>Expand to view More Screenshots </summary>
 
-### Deployment
+  ![Snippet of input fields](img/snippet3.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
+</details> -->
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<!-- _{Show pictures using ![alt text](image.jpg), show what library does as concisely as possible but don't need to explain how project solves problem from `code`_ -->
+
+## Test Case Example
+_Tests are done through Jest and are run from the command line prompt with `npm test`._
+
+<!-- _Some example tests:_
+
+![Snippet of an example test](img/tester1.png)
+
+![Snippet of an example result](img/tester2.png) -->
+
+<!-- _describe and show how to run tests with `code` examples}_ -->
+
+## Known Bugs
+
+_There are currently no known bugs in this program_
+
+## Support and contact details
+
+_If there are any question or concerns please contact us at our emails: [Tiffany Siu](mailto:tsiu88@gmail.com), [Adela Darmansyah](mailto:adela.yohana@gmail.com), and [Rachel Schieferstein](mailto:violenza@gmail.com). Thank you._
+
+### License
+
+*This software is licensed under the MIT license*
+
+Copyright (c) 2020 **_Tiffany Siu, Adela Darmansyah, Rachel Schieferstein_**
