@@ -1,6 +1,6 @@
 # _[Firebase Quiz](https://github.com/ayohana/quiz-firebase)_
 
-#### _Quiz in Firebase, 05.04.2020_
+#### _Intro to Firebase, 05.04.2020_
 
 #### By _**Tiffany Siu, Adela Darmansyah, Rachel Schieferstein**_
 
