@@ -24,13 +24,13 @@ function CreateQuizControl() {
       <NewQuizForm 
         onNewQuizCreation={handleNewQuizFormVisible}
       />;
-      buttonText = "Back to My Surveys";
+      buttonText = "Back to My Quizzes";
     } else if (editQuizFormVisible) {
       // currentlyVisibleComponent = <EditQuizForm />;
       // buttonText = "Back to My Surveys";
     } else {
       currentlyVisibleComponent = <MyQuizList />;
-      buttonText = "Make Survey";
+      buttonText = "Create a Quiz";
     }
   }
 

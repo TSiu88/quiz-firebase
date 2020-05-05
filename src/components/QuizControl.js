@@ -20,10 +20,10 @@ function QuizControl() {
   const setVisibility = () => {
     if (takeQuizControlVisible) {
       currentlyVisibleComponent = <TakeQuizControl />;
-      buttonText="Go to My Surveys";
+      buttonText="Go to My Quizzes";
     } else {
       currentlyVisibleComponent = <CreateQuizControl />;
-      buttonText="Go to Take Surveys";
+      buttonText="Go to Take a Quiz";
     }
   }
 

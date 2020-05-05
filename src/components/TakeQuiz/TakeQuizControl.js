@@ -9,19 +9,23 @@ function TakeQuizControl(props) {
   const [selectedQuiz, setQuiz] = useState(null);
 
   const handleChangingSelectedQuiz = (id) => {
-    props.firestore.get({
-      collection: 'quizzes', 
-      doc: id
-    }).then((quiz) => {
-      const firestoreQuiz = {
-        quizName: quiz.quizName
-        // names: ticket.get("names"),
-        // location: ticket.get("location"),
-        // issue: ticket.get("issue"),
-        // id: ticket.id
-      }
-      setQuiz(firestoreQuiz);
-    })
+    if (selectedQuiz == null) {
+        props.firestore.get({
+        collection: 'quizzes', 
+        doc: id
+      }).then((quiz) => {
+        const firestoreQuiz = {
+          quizName: quiz.quizName
+          // names: ticket.get("names"),
+          // location: ticket.get("location"),
+          // issue: ticket.get("issue"),
+          // id: ticket.id
+        }
+        setQuiz(firestoreQuiz);
+      })
+    } else {
+      setQuiz(null);
+    }
   }
 
   let currentlyVisibleState;
@@ -30,7 +34,7 @@ function TakeQuizControl(props) {
     if (selectedQuiz != null) {
       currentlyVisibleState = 
       <TakeQuizForm 
-        quiz = {selectedQuiz}
+        quiz = {selectedQuiz}  onQuizSelection={handleChangingSelectedQuiz}
         />;
       // <button onClick={() => {setQuiz(null)}}>Back to Quiz List</button>
     } else {
