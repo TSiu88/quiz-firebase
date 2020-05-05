@@ -1,29 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useFirestore } from 'react-redux-firebase';
+import { useFirestore, withFirestore } from 'react-redux-firebase';
 
 function TakeQuizForm(props) {
 
   console.log("PROPS IN TAKEQUIZFORM", props);
 
-  const firestore = useFirestore();
-
-  // function addResponseToFirestore(event){
-  //   event.preventDefault();
-  //   props.onQuizSelection();
-  //   return firestore.collection('responses').add(
-        
-  //   )
-  // }
-
   const { quiz } = props;
+
+  const firestore = useFirestore();
+  const auth = props.firebase.auth();
+  const currentUserId = auth.currentUser.uid;
+
+  function addResponseToFirestore(event){
+    event.preventDefault();
+    props.onQuizSelection();
+    
+    return firestore.collection('responses').add(
+      {
+        quizId: quiz.id,
+        submittedOn: firestore.FieldValue.serverTimestamp(),
+        // author: quiz.author,
+        // userId: currentUserId,
+        responseOne: event.target.responseOne.value,
+        responseTwo: event.target.responseTwo.value,
+        responseThree: event.target.responseThree.value
+      }
+        
+    )
+    props.onQuizSelection();
+  }
+
+  
 
   return (
     <React.Fragment>
       {/* <p>TakeQuizForm</p> */}
       <h1>{quiz.quizName}</h1>
       <h3>{quiz.dateCreated}</h3>
-      <form className="responseForm">
+      <form className="responseForm" onSubmit={addResponseToFirestore}>
         <div className="form-group">
           <p>{quiz.questionOne}:</p>
           <div>
@@ -66,4 +81,4 @@ TakeQuizForm.propTypes = {
 };
   
 
-export default TakeQuizForm;
+export default withFirestore(TakeQuizForm);

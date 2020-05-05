@@ -5,6 +5,7 @@ function Register(){
 
   function doSignUp(event){
     event.preventDefault();
+    const username = event.target.username.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
 
@@ -19,6 +20,11 @@ function Register(){
     <React.Fragment>
       <h1>Register</h1>
       <form onSubmit={doSignUp}>
+      <input
+          type='text'
+          name='username'
+          placeholder='username'
+        />
         <input
           type='text'
           name='email'

@@ -11,20 +11,24 @@ function AllQuizList(props) {
   ]);
 
   const quizzes = useSelector(state => state.firestore.ordered.quizzes);
+  // console.log(quizzes);
+  // const sortQuizzes = quizzes.sort((a,b) => a.dateCreated - b.dateCreated);
 
   if (isLoaded(quizzes)) {
     return (
       <React.Fragment>
         <h1>This is All Quizzes</h1>
         <hr/>
-        {quizzes.map((quiz) => {
+        {
+        quizzes
+        .map((quiz) => {
           return <Quiz
             whenQuizClicked = { props.onQuizSelection }
             quizName = {quiz.quizName}
             // names={quiz.names}
             // location={quiz.location}
             // issue={quiz.issue}
-            // formattedWaitTime={quiz.formattedWaitTime}
+            dateCreated={quiz.dateCreated}
             id={quiz.id}
             key={quiz.id}
             />

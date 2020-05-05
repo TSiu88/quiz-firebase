@@ -16,7 +16,7 @@ function TakeQuizControl(props) {
       }).then((quiz) => {
         const firestoreQuiz = {
           quizName: quiz.get("quizName"),
-          dateCreated: quiz.get("dateCreated").toDate().toDateString(),
+          dateCreated: quiz.get("dateCreated").toDate().toString(),
           questionOne: quiz.get("questionOne"),
           questionOne1: quiz.get("questionOne1"),
           questionOne2: quiz.get("questionOne2"),
@@ -29,7 +29,8 @@ function TakeQuizControl(props) {
           questionThree1: quiz.get("questionThree1"),
           questionThree2: quiz.get("questionThree2"),
           questionThree3: quiz.get("questionThree3"),
-          id: quiz.get("id")
+          id: id,
+          author: quiz.get("author")
         }
         setQuiz(firestoreQuiz);
       })
@@ -44,7 +45,8 @@ function TakeQuizControl(props) {
     if (selectedQuiz != null) {
       currentlyVisibleState = 
       <TakeQuizForm 
-        quiz = {selectedQuiz}  onQuizSelection={handleChangingSelectedQuiz}
+        quiz = {selectedQuiz}
+        onQuizSelection={handleChangingSelectedQuiz}
         />;
     } else {
       currentlyVisibleState = 

@@ -1,6 +1,7 @@
 import React from "react";
 import firebase from "firebase/app";
-import { withFirestore, isLoaded } from 'react-redux-firebase'
+import { withFirestore, isLoaded } from 'react-redux-firebase';
+import { Switch, Route } from 'react-router-dom';
 
 function Signin(props){
 
@@ -45,6 +46,7 @@ function Signin(props){
             placeholder='Password' />
           <button type='submit'>Sign in</button>
         </form>
+
       </React.Fragment>
     )
   }

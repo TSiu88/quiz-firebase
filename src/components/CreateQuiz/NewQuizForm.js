@@ -1,9 +1,12 @@
-import { useFirestore } from 'react-redux-firebase';
 import React from 'react';
+import { useFirestore, withFirestore } from 'react-redux-firebase';
 
 function NewQuizForm(props){
 
   const firestore = useFirestore();
+  const auth = props.firebase.auth();
+  const currentUserId = auth.currentUser.uid;
+  console.log(auth.currentUser);
 
   function addQuizToFirestore(event) {
     event.preventDefault();
@@ -12,8 +15,7 @@ function NewQuizForm(props){
       {
         quizName: event.target.quizName.value,
         dateCreated: firestore.FieldValue.serverTimestamp(),
-        // author: event.target.userId.value,
-        // TODO: ADD AUTHOR TO FORM
+        author: currentUserId,
         questionOne: event.target.questionOne.value,
         questionOne1: event.target.questionOne1.value,
         questionOne2: event.target.questionOne2.value,
@@ -169,10 +171,11 @@ function NewQuizForm(props){
         </div>
 
         {/* <button className="btn btn-secondary" type="button">Add Question</button> */}
+        {/* TODO: Add functionality to dynamically add new questions and answers */}
         <button className="btn btn-primary" type="submit">Submit New Quiz</button>
       </form>
     </React.Fragment>
   );
 }
 
-export default NewQuizForm;
+export default withFirestore(NewQuizForm);
