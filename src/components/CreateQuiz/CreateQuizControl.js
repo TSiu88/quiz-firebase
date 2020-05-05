@@ -16,21 +16,29 @@ function CreateQuizControl() {
     setNewQuizFormVisible(!newQuizFormVisible);
   }
 
+  const handleEditingFormVisible = () => {
+    setEditQuizFormVisible(!setEditQuizFormVisible);
+  }
+
   let currentlyVisibleComponent;
   let buttonText = "";
   const setVisibility = () => {
-    if (newQuizFormVisible) {
-      currentlyVisibleComponent = 
-      <NewQuizForm 
-        onNewQuizCreation={handleNewQuizFormVisible}
-      />;
-      buttonText = "Back to My Quizzes";
-    } else if (editQuizFormVisible) {
-      // currentlyVisibleComponent = <EditQuizForm />;
-      // buttonText = "Back to My Surveys";
+    if (editQuizFormVisible) {
+      currentlyVisibleComponent = <EditQuizForm onEditingSubmit={handleEditingFormVisible} />
     } else {
-      currentlyVisibleComponent = <MyQuizList />;
-      buttonText = "Create a Quiz";
+      if (newQuizFormVisible) {
+        currentlyVisibleComponent =
+          <NewQuizForm
+            onNewQuizCreation={handleNewQuizFormVisible}
+          />;
+        buttonText = "Back to My Quizzes";
+        // } else if (editQuizFormVisible) {
+        // currentlyVisibleComponent = <EditQuizForm />;
+        // buttonText = "Back to My Surveys";
+      } else {
+        currentlyVisibleComponent = <MyQuizList />;
+        buttonText = "Create a Quiz";
+      }
     }
   }
 
@@ -39,7 +47,7 @@ function CreateQuizControl() {
   return (
     <React.Fragment>
       <h4>My Dashboard</h4>
-      <button onClick={() => {handleNewQuizFormVisible()}}>{buttonText}</button>
+      <button onClick={() => { handleNewQuizFormVisible() }}>{buttonText}</button>
       {currentlyVisibleComponent}
     </React.Fragment>
   );

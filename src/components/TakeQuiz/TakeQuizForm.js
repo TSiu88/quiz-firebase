@@ -20,8 +20,8 @@ function TakeQuizForm(props) {
       {
         quizId: quiz.id,
         submittedOn: firestore.FieldValue.serverTimestamp(),
-        // author: quiz.author,
-        // userId: currentUserId,
+        author: quiz.author,
+        userId: currentUserId,
         responseOne: event.target.responseOne.value,
         responseTwo: event.target.responseTwo.value,
         responseThree: event.target.responseThree.value
@@ -35,7 +35,6 @@ function TakeQuizForm(props) {
 
   return (
     <React.Fragment>
-      {/* <p>TakeQuizForm</p> */}
       <h1>{quiz.quizName}</h1>
       <h3>{quiz.dateCreated}</h3>
       <form className="responseForm" onSubmit={addResponseToFirestore}>
