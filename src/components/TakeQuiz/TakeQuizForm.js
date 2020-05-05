@@ -4,13 +4,15 @@ import { useFirestore } from 'react-redux-firebase';
 
 function TakeQuizForm(props) {
 
-  // const firestore = useFirestore();
+  console.log("PROPS IN TAKEQUIZFORM", props);
+
+  const firestore = useFirestore();
 
   // function addResponseToFirestore(event){
   //   event.preventDefault();
   //   props.onQuizSelection();
   //   return firestore.collection('responses').add(
-
+        
   //   )
   // }
 
@@ -18,37 +20,37 @@ function TakeQuizForm(props) {
 
   return (
     <React.Fragment>
-      <p>TakeQuizForm</p>
+      {/* <p>TakeQuizForm</p> */}
       <h1>{quiz.quizName}</h1>
       <h3>{quiz.dateCreated}</h3>
       <form className="responseForm">
         <div className="form-group">
-          <p>{quiz.questionOne}</p>:
+          <p>{quiz.questionOne}:</p>
           <div>
             <input type="radio" name="responseOne" value={quiz.questionOne1}/>
-            <label for={quiz.questionOne1}>{quiz.questionOne1}</label>
+            <label htmlFor={quiz.questionOne1}>{quiz.questionOne1}</label>
             <input type="radio" name="responseOne" value={quiz.responseOne2}/>
-            <label for={quiz.responseOne2}>{quiz.questionOne2}</label>
+            <label htmlFor={quiz.responseOne2}>{quiz.questionOne2}</label>
             <input type="radio" name="responseOne" value={quiz.questionOne3}/>
-            <label for={quiz.questionOne3}>{quiz.questionOne3}</label>
+            <label htmlFor={quiz.questionOne3}>{quiz.questionOne3}</label>
           </div>
-          <p>{quiz.questionTwo}</p>:
+          <p>{quiz.questionTwo}:</p>
           <div>
             <input type="radio" name="responseTwo" value={quiz.questionTwo1}/>
-            <label for={quiz.questionTwo1}>{quiz.questionTwo1}</label>
+            <label htmlFor={quiz.questionTwo1}>{quiz.questionTwo1}</label>
             <input type="radio" name="responseTwo" value={quiz.questionTwo2}/>
-            <label for={quiz.questionTwo2}>{quiz.questionTwo2}</label>
+            <label htmlFor={quiz.questionTwo2}>{quiz.questionTwo2}</label>
             <input type="radio" name="responseTwo" value={quiz.questionTwo3}/>
-            <label for={quiz.questionTwo3}>{quiz.questionTwo3}</label>
+            <label htmlFor={quiz.questionTwo3}>{quiz.questionTwo3}</label>
           </div>
-          <p>{quiz.questionThree}</p>:
+          <p>{quiz.questionThree}:</p>
           <div>
             <input type="radio" name="responseThree" value={quiz.questionThree1}/>
-            <label for={quiz.questionThree1}>{quiz.questionThree1}</label>
+            <label htmlFor={quiz.questionThree1}>{quiz.questionThree1}</label>
             <input type="radio" name="responseThree" value={quiz.questionThree2}/>
-            <label for={quiz.questionThree2}>{quiz.questionThree2}</label>
+            <label htmlFor={quiz.questionThree2}>{quiz.questionThree2}</label>
             <input type="radio" name="responseThree" value={quiz.questionThree3}/>
-            <label for={quiz.questionThree3}>{quiz.questionThree3}</label>
+            <label htmlFor={quiz.questionThree3}>{quiz.questionThree3}</label>
           </div>
         </div>
         <button className="btn btn-primary" type="submit">Submit Response</button>

@@ -5,7 +5,7 @@ import './App.css';
 import Signin from './Signin';
 import Register from './Register';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { withFirestore, isLoaded} from 'react-redux-firebase';
+// import { withFirestore, isLoaded} from 'react-redux-firebase';
 
 function QuizControl() {
 

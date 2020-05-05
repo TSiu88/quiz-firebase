@@ -18,14 +18,20 @@ function Header(props) {
 
   setVisibility();
 
-  return (
-    <React.Fragment>
+  if ((isLoaded(auth)) && (auth.currentUser != null)) {
+    return (
       <h1><Link to="/">Firebase Quiz</Link></h1>
+    )
+  } else{
+    return (
+      <React.Fragment>
+      {/* <h1><Link to="/">Firebase Quiz</Link></h1> */}
       <Link to="/register">Register</Link>
       <Link to="/signin">{buttonText}</Link>
-      <hr />
-    </React.Fragment>
-  )
+      {/* <hr /> */}
+      </React.Fragment>
+    )
+  }
 }
 
 export default withFirestore(Header);

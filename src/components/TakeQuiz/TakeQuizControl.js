@@ -15,21 +15,21 @@ function TakeQuizControl(props) {
         doc: id
       }).then((quiz) => {
         const firestoreQuiz = {
-          quizName: quiz.quizName,
-          dateCreated: quiz.dateCreated,
-          questionOne: quiz.questionOne,
-          questionOne1: quiz.questionOne1,
-          questionOne2: quiz.questionOne2,
-          questionOne3: quiz.questionOne3,
-          questionTwo: quiz.questionTwo,
-          questionTwo1: quiz.questionTwo1,
-          questionTwo2: quiz.questionTwo2,
-          questionTwo3: quiz.questionTwo3,
-          questionThree: quiz.questionThree,
-          questionThree1: quiz.questionThree1,
-          questionThree2: quiz.questionThree2,
-          questionThree3: quiz.questionThree3,
-          id: quiz.id
+          quizName: quiz.get("quizName"),
+          dateCreated: quiz.get("dateCreated").toDate().toDateString(),
+          questionOne: quiz.get("questionOne"),
+          questionOne1: quiz.get("questionOne1"),
+          questionOne2: quiz.get("questionOne2"),
+          questionOne3: quiz.get("questionOne3"),
+          questionTwo: quiz.get("questionTwo"),
+          questionTwo1: quiz.get("questionTwo1"),
+          questionTwo2: quiz.get("questionTwo2"),
+          questionTwo3: quiz.get("questionTwo3"),
+          questionThree: quiz.get("questionThree"),
+          questionThree1: quiz.get("questionThree1"),
+          questionThree2: quiz.get("questionThree2"),
+          questionThree3: quiz.get("questionThree3"),
+          id: quiz.get("id")
         }
         setQuiz(firestoreQuiz);
       })
