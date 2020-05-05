@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import CreateQuizControl from './CreateQuiz/CreateQuizControl';
 import TakeQuizControl from './TakeQuiz/TakeQuizControl';
 import './App.css';
+import Signin from './Signin';
+import Register from './Register';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { withFirestore, isLoaded} from 'react-redux-firebase';
 
 function QuizControl() {
 
@@ -31,8 +35,18 @@ function QuizControl() {
 
   return (
     <React.Fragment>
-      <button onClick={() => {handleTakeQuizDisplay()}}>{buttonText}</button>
-      {currentlyVisibleComponent}
+        <Switch>
+          <Route path='/register'>
+            <Register/>
+          </Route>
+          <Route path='/signin'>
+            <Signin/>
+          </Route>
+          <Route path="/">
+            <button onClick={() => {handleTakeQuizDisplay()}}>{buttonText}</button>
+            {currentlyVisibleComponent}
+          </Route>
+        </Switch>
     </React.Fragment>
   );
 }

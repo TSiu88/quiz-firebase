@@ -4,6 +4,19 @@ body {
   color: #FFF5FF;
 }
 
+a {
+  color: #D5CABD;
+  padding: 5px;
+  margin: 15px;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FFF5FF;
+  text-shadow: 2px 2px #AB84A8;
+}
+
+
 button {
   padding: 10px;
   color: #D5CABD;

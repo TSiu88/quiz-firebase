@@ -1,5 +1,5 @@
 import React from 'react';
-import Quiz from './Quiz';
+// import Quiz from './Quiz';
 import { useSelector } from 'react-redux'
 import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase';
 

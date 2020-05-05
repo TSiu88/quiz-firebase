@@ -2,13 +2,16 @@ import React from 'react';
 import './App.css';
 import Header from './Header';
 import QuizControl from './QuizControl';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
    <React.Fragment>
-     <Header />
-     <QuizControl />
-    </React.Fragment>
+    <Router>
+      <Header />
+      <QuizControl/>
+    </Router>
+  </React.Fragment>
   );
 }
 

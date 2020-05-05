@@ -2,7 +2,7 @@
 
 #### _Intro to Firebase, 05.04.2020 - 05.05.2020_
 
-#### By _**Tiffany Siu, Adela Darmansyah, Rachel Schieferstein**_
+#### By _**Tiffany Siu, Adela Darmansyah, Rachel Schieferstein, Andriy Veremyeyev**_
 
 <!-- [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive) -->
 <!-- [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) -->
@@ -133,10 +133,10 @@ _There are currently no known bugs in this program_
 
 ## Support and contact details
 
-_If there are any question or concerns please contact us at our emails: [Tiffany Siu](mailto:tsiu88@gmail.com), [Adela Darmansyah](mailto:adela.yohana@gmail.com), and [Rachel Schieferstein](mailto:violenza@gmail.com). Thank you._
+_If there are any question or concerns please contact us at our emails: [Tiffany Siu](mailto:tsiu88@gmail.com), [Adela Darmansyah](mailto:adela.yohana@gmail.com), [Rachel Schieferstein](mailto:violenza@gmail.com) and [Andriy Veremyeyev](mailto:belyybrat@gmail.com). Thank you._
 
 ### License
 
 *This software is licensed under the MIT license*
 
-Copyright (c) 2020 **_Tiffany Siu, Adela Darmansyah, Rachel Schieferstein_**
+Copyright (c) 2020 **_Tiffany Siu, Adela Darmansyah, Rachel Schieferstein, Andriy Veremyeyev_**

@@ -3,14 +3,14 @@ import firebase from 'firebase/app';
 
 function Register(){
 
-  function Register(event){
+  function doSignUp(event){
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
 
-    firebase.auth().createUserWithEmailAndPassword(email, password).then( () => {
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(function() {
       console.log('successfully signed up!');
-    }).catch((error) => {
+    }).catch(function(error) {
       console.log(error.message);
     });
   }
@@ -18,6 +18,7 @@ function Register(){
   return (
     <React.Fragment>
       <h1>Register</h1>
+      <form onSubmit={doSignUp}>
         <input
           type='text'
           name='email'
@@ -29,10 +30,9 @@ function Register(){
           placeholder='Password'
         />
         <button type='submit'>Register</button>
-      <form>
-
       </form>
-
     </React.Fragment>
   )
 }
+
+export default Register;
