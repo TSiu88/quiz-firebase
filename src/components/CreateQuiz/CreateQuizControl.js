@@ -69,7 +69,7 @@ function CreateQuizControl(props) {
         // currentlyVisibleComponent = <EditQuizForm />;
         // buttonText = "Back to My Surveys";
       } else {
-        currentlyVisibleComponent = <MyQuizList />;
+        currentlyVisibleComponent = <MyQuizList onEditingSubmit={handleEditingFormVisible} onQuizSelecton={handleChangingSelectedQuiz} />;
         buttonText = "Create a Quiz";
       }
     }

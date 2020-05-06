@@ -6,12 +6,11 @@ function NewQuizForm(props){
   const firestore = useFirestore();
   const auth = props.firebase.auth();
   const currentUserId = auth.currentUser.uid;
-  // console.log(auth.currentUser);
 
   function addQuizToFirestore(event) {
     event.preventDefault();
     props.onNewQuizCreation();
-    return firestore.collection('quizzes').add(
+    firestore.collection('quizzes').add(
       {
         username: auth.currentUser.displayName,
         quizName: event.target.quizName.value,
@@ -32,6 +31,7 @@ function NewQuizForm(props){
       }
     );
   }
+
   return (
     <React.Fragment>
       <h2>Create New Quiz</h2>

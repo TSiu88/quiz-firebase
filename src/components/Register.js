@@ -19,10 +19,10 @@ function Register(props){
         displayName: username,
         }).then(function() {
           // Update successful.
-          console.log("Username added");
+          console.log("Username added:", user.displayName);
         }).catch(function(error) {
           // An error happened.
-          console.log("Error: Couldn't add username");
+          console.log(error);
         });
       console.log('successfully signed up!');
       // Routes directly to being signed in
