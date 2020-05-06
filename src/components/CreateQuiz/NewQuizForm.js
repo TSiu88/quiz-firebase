@@ -6,7 +6,7 @@ function NewQuizForm(props){
   const firestore = useFirestore();
   const auth = props.firebase.auth();
   const currentUserId = auth.currentUser.uid;
-  console.log(auth.currentUser);
+  // console.log(auth.currentUser);
 
   function addQuizToFirestore(event) {
     event.preventDefault();

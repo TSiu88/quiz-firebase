@@ -7,32 +7,32 @@ import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 function AllQuizList(props) {
 
   useFirestoreConnect([
-    { collection: 'quizzes' }
+    { collection: 'quizzes', orderBy: ["dateCreated", "desc"] }
   ]);
 
   const quizzes = useSelector(state => state.firestore.ordered.quizzes);
   // console.log(quizzes);
-  // const sortQuizzes = quizzes.sort((a,b) => a.dateCreated - b.dateCreated);
+
 
   if (isLoaded(quizzes)) {
     return (
       <React.Fragment>
         <h1>This is All Quizzes</h1>
-        <hr/>
+        <hr />
         {
-        quizzes
-        .map((quiz) => {
-          return <Quiz
-            whenQuizClicked = { props.onQuizSelection }
-            quizName = {quiz.quizName}
-            // names={quiz.names}
-            // location={quiz.location}
-            // issue={quiz.issue}
-            dateCreated={quiz.dateCreated}
-            id={quiz.id}
-            key={quiz.id}
-            />
-        })}
+          quizzes
+            .map((quiz) => {
+              return <Quiz
+                whenQuizClicked={props.onQuizSelection}
+                quizName={quiz.quizName}
+                // names={quiz.names}
+                // location={quiz.location}
+                // issue={quiz.issue}
+                dateCreated={quiz.dateCreated}
+                id={quiz.id}
+                key={quiz.id}
+              />
+            })}
       </React.Fragment>
     );
   } else if (isEmpty(quizzes)) {
@@ -52,9 +52,9 @@ function AllQuizList(props) {
     )
   }
 }
-  
+
 AllQuizList.propTypes = {
   onQuizSelection: PropTypes.func
 };
-  
+
 export default AllQuizList;

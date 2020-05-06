@@ -6,7 +6,7 @@ import './App.css';
 function Header(props) {
 
   let buttonText;
-  const auth = props.firebase.auth();
+  const [isSignedIn, setIsSignedIn] = useState(props);
 
   const setVisibility = () => {
     if ((isLoaded(auth)) && (auth.currentUser == null)) {
@@ -34,4 +34,4 @@ function Header(props) {
   }
 }
 
-export default withFirestore(Header);
+export default Header;
