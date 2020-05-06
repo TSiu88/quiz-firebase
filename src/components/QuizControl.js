@@ -7,7 +7,7 @@ import Register from './Register';
 import { Switch, Route } from 'react-router-dom';
 // import { withFirestore, isLoaded} from 'react-redux-firebase';
 
-function QuizControl() {
+function QuizControl(props) {
 
   // DEFAULT STATE ===============================
   const [createQuizControlVisible, setCreateQuizControlVisible] = useState(false);
@@ -26,7 +26,7 @@ function QuizControl() {
       currentlyVisibleComponent = <TakeQuizControl />;
       buttonText="Go to My Quizzes";
     } else {
-      currentlyVisibleComponent = <CreateQuizControl />;
+      currentlyVisibleComponent = <CreateQuizControl username={props.username} />;
       buttonText="Go to Take a Quiz";
     }
   }
@@ -36,8 +36,8 @@ function QuizControl() {
   return (
     <React.Fragment>
         <Switch>
-          <Route path='/register'>
-            <Register/>
+          <Route path='/register' >
+            <Register />
           </Route>
           <Route path='/signin'>
             <Signin/>

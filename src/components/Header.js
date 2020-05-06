@@ -2,35 +2,46 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { withFirestore, isLoaded } from 'react-redux-firebase';
 import './App.css';
+import firebase from "firebase/app";
 
 function Header(props) {
   const {userEmail} = props;
 
-  let buttonText;
-  let currentlyVisible;
+  const auth = props.firebase.auth()
 
+  let currentlyVisible;
+  let registerVisible;
+
+  function doSignOut(){
+    firebase.auth().signOut().then(function(){
+      console.log('Successfully signed out!');
+    }).catch((error) => {
+      console.log(error.message);
+    })
+  }
+
+  
   const setVisibility = () => {
     if (props.userSignInStatus) {
-      currentlyVisible = "";
-      buttonText = "Sign Out";
+      currentlyVisible = <div><Link onClick={() => doSignOut()} to="/signin">Sign Out</Link></div>;
+      registerVisible = <p></p>;
     } else {
-      currentlyVisible = <Link to="/register">Register</Link>;
-      buttonText = "Sign In";
+      currentlyVisible = <Link to="/signin">Sign In</Link>;
+      registerVisible = <Link to="/register">Register</Link>;
+      // <Link to="/">Go back to Homepage</Link>
     }
   }
 
   setVisibility();
-  console.log("USERNAME", user.displayName);
 
   return (
     <React.Fragment>
-      {/* <h1><Link to="/">Firebase Quiz</Link></h1> */}
       <h4>Welcome, {userEmail}!</h4>
       {currentlyVisible}
-      <Link to="/signin">{buttonText}</Link>
+      {registerVisible}
       <hr />
     </React.Fragment>
   )
 }
 
-export default Header;
+export default withFirestore(Header);

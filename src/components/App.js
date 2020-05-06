@@ -10,9 +10,11 @@ function App(props) {
 
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [userEmail, setUserEmail] = useState("New User");
+  const [username, setUsername] = useState("New User");
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+      setUsername(user.displayName);
       setUserEmail(user.email);
       setIsSignedIn(true);
     } else {
@@ -23,8 +25,8 @@ function App(props) {
   return (
    <React.Fragment>
     <Router>
-      <Header userSignInStatus={isSignedIn} userEmail={userEmail}/>
-      <QuizControl userSignInStatus={isSignedIn} />
+      <Header userSignInStatus={isSignedIn} username={username} userEmail={userEmail}/>
+      <QuizControl userSignInStatus={isSignedIn} username={username} />
     </Router>
   </React.Fragment>
   );

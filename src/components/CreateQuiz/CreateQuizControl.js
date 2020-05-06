@@ -79,7 +79,7 @@ function CreateQuizControl(props) {
 
   return (
     <React.Fragment>
-      <h2>My Dashboard</h2>
+      <h2>{props.username}'s Dashboard</h2>
       <button onClick={() => { handleNewQuizFormVisible() }}>{buttonText}</button>
       {currentlyVisibleComponent}
     </React.Fragment>

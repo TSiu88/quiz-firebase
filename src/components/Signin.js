@@ -1,7 +1,7 @@
 import React from "react";
 import firebase from "firebase/app";
 import { withFirestore, isLoaded } from 'react-redux-firebase';
-import { Switch, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Signin(props){
 
@@ -18,20 +18,7 @@ function Signin(props){
     });
   }
 
-  function doSignOut(){
-    firebase.auth().signOut().then(function(){
-      console.log('Successfully signed out!');
-    }).catch((error) => {
-      console.log(error.message);
-    })
-  }
-
-  if ((isLoaded(auth)) && (auth.currentUser != null)) {
-    return(
-      <button onClick={doSignOut}>Sign Out</button>
-    )
-  }
-  else {
+  if ((isLoaded(auth)) && (auth.currentUser == null)) {
     return (
       <React.Fragment>
         <h1>Sign In</h1>
@@ -46,7 +33,13 @@ function Signin(props){
             placeholder='Password' />
           <button type='submit'>Sign in</button>
         </form>
-
+      </React.Fragment>
+    )
+  } else {
+    return (
+      <React.Fragment>
+        <h1>You are already signed in!</h1>
+        <Link to="/">Go To All Quizzes</Link>
       </React.Fragment>
     )
   }
