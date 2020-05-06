@@ -13,6 +13,7 @@ function NewQuizForm(props){
     props.onNewQuizCreation();
     return firestore.collection('quizzes').add(
       {
+        username: auth.currentUser.displayName,
         quizName: event.target.quizName.value,
         dateCreated: firestore.FieldValue.serverTimestamp(),
         author: currentUserId,

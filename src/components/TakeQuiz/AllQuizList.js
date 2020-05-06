@@ -11,10 +11,14 @@ function AllQuizList(props) {
   ]);
 
   const quizzes = useSelector(state => state.firestore.ordered.quizzes);
-  // console.log(quizzes);
 
-
-  if (isLoaded(quizzes)) {
+  if(!isLoaded(quizzes)) {
+    return (
+      <React.Fragment>
+        <h3>Loading...</h3>
+      </React.Fragment>
+    )
+  } else if (isLoaded(quizzes)) {
     return (
       <React.Fragment>
         <h1>This is All Quizzes</h1>
@@ -23,11 +27,9 @@ function AllQuizList(props) {
           quizzes
             .map((quiz) => {
               return <Quiz
+                username={quiz.username}
                 whenQuizClicked={props.onQuizSelection}
                 quizName={quiz.quizName}
-                // names={quiz.names}
-                // location={quiz.location}
-                // issue={quiz.issue}
                 dateCreated={quiz.dateCreated}
                 id={quiz.id}
                 key={quiz.id}
@@ -35,19 +37,12 @@ function AllQuizList(props) {
             })}
       </React.Fragment>
     );
-  } else if (isEmpty(quizzes)) {
+  } else {
     return (
       <React.Fragment>
         <div>
           <h1>This is an Empty All Quizzes</h1>
         </div>
-      </React.Fragment>
-    )
-  } else {
-    return (
-      <React.Fragment>
-        <h1>This is a Loading All Quizzes</h1>
-        <h3>Loading...</h3>
       </React.Fragment>
     )
   }

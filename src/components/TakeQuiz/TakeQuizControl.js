@@ -15,6 +15,7 @@ function TakeQuizControl(props) {
         doc: id
       }).then((quiz) => {
         const firestoreQuiz = {
+          username: quiz.get("username"),
           quizName: quiz.get("quizName"),
           dateCreated: quiz.get("dateCreated").toDate().toString(),
           questionOne: quiz.get("questionOne"),
