@@ -21,7 +21,8 @@ function AllQuizList(props) {
   } else if (isLoaded(quizzes)) {
     return (
       <React.Fragment>
-        <h1>This is All Quizzes</h1>
+        <h1>All Quizzes</h1>
+        <h4>Get started by clicking "Take Quiz" below!</h4>
         <hr />
         {
           quizzes
@@ -37,13 +38,17 @@ function AllQuizList(props) {
             })}
       </React.Fragment>
     );
-  } else {
+  } else if (isEmpty(quizzes)) {
     return (
       <React.Fragment>
         <div>
-          <h1>This is an Empty All Quizzes</h1>
+          <h1>There are currently no quizzes saved in our database.</h1>
         </div>
       </React.Fragment>
+    )
+  } else {
+    return (
+      <h1>Something went wrong. :(</h1>
     )
   }
 }

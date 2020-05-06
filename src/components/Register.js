@@ -1,6 +1,6 @@
 import React from 'react';
 import firebase from 'firebase/app';
-import { withRouter, useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function Register(props){
 

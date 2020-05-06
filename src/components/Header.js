@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
-import { withFirestore, isLoaded } from 'react-redux-firebase';
+import { withFirestore } from 'react-redux-firebase';
 import './App.css';
 import firebase from "firebase/app";
 
 function Header(props) {
   const {userEmail} = props;
 
-  const auth = props.firebase.auth()
+  //const auth = props.firebase.auth()
 
   let currentlyVisible;
   let registerVisible;

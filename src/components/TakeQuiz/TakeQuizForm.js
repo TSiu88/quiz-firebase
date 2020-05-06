@@ -37,6 +37,7 @@ function TakeQuizForm(props) {
     <React.Fragment>
       <h1>{quiz.quizName}</h1>
       <h3>{quiz.dateCreated}</h3>
+      <h3>By {quiz.username}</h3>
       <form className="responseForm" onSubmit={addResponseToFirestore}>
         <div className="form-group">
           <p>{quiz.questionOne}:</p>

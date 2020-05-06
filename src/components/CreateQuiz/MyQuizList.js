@@ -1,16 +1,12 @@
 import React from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
 import { useSelector } from 'react-redux'
-import { firestoreConnect, useFirestoreConnect, withFirestore, isLoaded, isEmpty } from 'react-redux-firebase';
-import firebase from 'firebase';
+import { useFirestoreConnect, withFirestore, isLoaded, isEmpty } from 'react-redux-firebase';
 import Quiz from './Quiz';
 
 function MyQuizList(props) {
 
   const auth = props.firebase.auth();
   const currentUserId = auth.currentUser.uid;
-  // console.log("Current User", currentUserId);
 
   useFirestoreConnect([
     { collection: 'quizzes', where: ["author", "==", currentUserId] }
@@ -18,10 +14,16 @@ function MyQuizList(props) {
 
   const quizzes = useSelector(state => state.firestore.ordered.quizzes);
 
-  if (isLoaded(quizzes)) {
+  if (!isLoaded(quizzes)) {
     return (
       <React.Fragment>
-        <h1>This is My Quizzes</h1>
+        <h3>Loading...</h3>
+      </React.Fragment>
+    )
+  } else if (isLoaded(quizzes)) {
+    return (
+      <React.Fragment>
+        <h1>My Quizzes</h1>
         <hr />
         {
           quizzes
@@ -40,16 +42,13 @@ function MyQuizList(props) {
     return (
       <React.Fragment>
         <div>
-          <h1>This is an Empty My Quizzes</h1>
+          <h1>You have not created any quizzes yet!</h1>
         </div>
       </React.Fragment>
     )
   } else {
     return (
-      <React.Fragment>
-        <h1>This is a Loading My Quizzes</h1>
-        <h3>Loading...</h3>
-      </React.Fragment>
+      <h1>Something went wrong. :(</h1>
     )
   }
 }
