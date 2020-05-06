@@ -129,7 +129,7 @@ _Tests are done through Jest and are run from the command line prompt with `npm 
 
 ## Known Bugs
 
-_There are currently no known bugs in this program_
+[ ] On new account registration submission, the app automatically signs the user in. However, their displayName does not show up on their dashboard the first time they visit their dashboard. After signing out and in again, their name will show up on their dashboard.
 
 ## Support and contact details
 

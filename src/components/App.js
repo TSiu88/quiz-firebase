@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { withFirestore, isLoaded } from 'react-redux-firebase';
 import firebase from 'firebase';
 
-function App(props) {
+function App() {
 
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [userEmail, setUserEmail] = useState("New User");
