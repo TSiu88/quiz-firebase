@@ -23,6 +23,7 @@
 3. [Notable Features](#notable-features)
 4. [Specifications](#specifications)
     - [User Stories](#user-stories)
+    - [Further Exploration](#further-exploration)
 5. [Screenshots](#screenshots)
 6. [Test Case Example](#test-case-example)
 7. [Known Bugs](#known-bugs)
@@ -91,10 +92,17 @@ This is an application that allows a user to complete a quiz or survey. Users sh
 
 ### User Stories
 
-* A user should be able to create, update and delete a survey. All surveys should be stored in the database.
-* A user should be able to fill out and submit surveys. Survey results should be submitted to the database.
-* A user should be able to sign up, sign in, and sign out.
-* A user should have their own dashboard which lists the surveys they've created.
+[ ] A user should be able to create, update and delete a survey.
+[x] All surveys should be stored in the database.
+[x] A user should be able to fill out and submit surveys.
+[x] Survey results should be submitted to the database.
+[x] A user should be able to sign up, sign in, and sign out.
+[x] A user should have their own dashboard which lists the surveys they've created.
+
+### Further Exploration
+[ ] As a developer, I want to be able to dynamically add a new question when creating a new quiz.
+[ ] A user should be able to see the combined data on a survey in their dashboard. For instance, if a survey provides a 1-5 rating, return an average rating for all surveys.
+[ ] Try using a library like D3 to visualize data from surveys. This is only recommended if you have time to spare, interest in data visualization, and are doing a week-long project.
 
 ## Screenshots
 
