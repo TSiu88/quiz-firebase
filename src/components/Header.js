@@ -1,37 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { withFirestore, isLoaded } from 'react-redux-firebase';
 import './App.css';
 
 function Header(props) {
+  const {userEmail} = props;
 
   let buttonText;
-  const [isSignedIn, setIsSignedIn] = useState(props);
+  let currentlyVisible;
 
   const setVisibility = () => {
-    if ((isLoaded(auth)) && (auth.currentUser == null)) {
-      buttonText = "Sign In";
-    } else {
+    if (props.userSignInStatus) {
+      currentlyVisible = "";
       buttonText = "Sign Out";
+    } else {
+      currentlyVisible = <Link to="/register">Register</Link>;
+      buttonText = "Sign In";
     }
   }
 
   setVisibility();
+  console.log("USERNAME", user.displayName);
 
-  if ((isLoaded(auth)) && (auth.currentUser != null)) {
-    return (
-      <h1><Link to="/">Firebase Quiz</Link></h1>
-    )
-  } else{
-    return (
-      <React.Fragment>
+  return (
+    <React.Fragment>
       {/* <h1><Link to="/">Firebase Quiz</Link></h1> */}
-      <Link to="/register">Register</Link>
+      <h4>Welcome, {userEmail}!</h4>
+      {currentlyVisible}
       <Link to="/signin">{buttonText}</Link>
-      {/* <hr /> */}
-      </React.Fragment>
-    )
-  }
+      <hr />
+    </React.Fragment>
+  )
 }
 
 export default Header;

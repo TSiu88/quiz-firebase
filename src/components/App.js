@@ -1,26 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Header from './Header';
 import QuizControl from './QuizControl';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { withFirestore, isLoaded } from 'react-redux-firebase';
+import firebase from 'firebase';
 
 function App(props) {
 
-  const auth = props.firebase.auth();
-  const handleIsSignedIn = () => {
-    if ((isLoaded(auth)) && (auth.currentUser == null)) {
-      return true;
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [userEmail, setUserEmail] = useState("New User");
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      setUserEmail(user.email);
+      setIsSignedIn(true);
     } else {
-      return false;
+      setIsSignedIn(false);
     }
-  }
+  });
 
   return (
    <React.Fragment>
     <Router>
-      <Header userSignInStatus={handleIsSignedIn} />
-      <QuizControl userSignInStatus={handleIsSignedIn} />
+      <Header userSignInStatus={isSignedIn} userEmail={userEmail}/>
+      <QuizControl userSignInStatus={isSignedIn} />
     </Router>
   </React.Fragment>
   );

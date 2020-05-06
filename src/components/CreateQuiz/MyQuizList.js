@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 import { firestoreConnect, useFirestoreConnect, withFirestore, isLoaded, isEmpty } from 'react-redux-firebase';
 import firebase from 'firebase';
 import Quiz from './Quiz';
-const myQuizzesReduxName = "myQuizzes";
 
 function MyQuizList(props) {
 

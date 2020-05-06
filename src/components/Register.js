@@ -5,11 +5,23 @@ function Register(){
 
   function doSignUp(event){
     event.preventDefault();
-    const username = event.target.username.value;
+    let username = event.target.username.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
 
     firebase.auth().createUserWithEmailAndPassword(email, password).then(function() {
+      let user = firebase.auth().currentUser;
+      if (username === null){
+        username = "defaultname";
+      }
+      user.updateProfile({
+        displayName: username,
+      }).then(function() {
+        // Update successful.
+      }).catch(function(error) {
+        // An error happened.
+      });
+      console.log("USERNAME", user.displayName);
       console.log('successfully signed up!');
     }).catch(function(error) {
       console.log(error.message);
