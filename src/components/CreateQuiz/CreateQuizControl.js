@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import EditQuizForm from './EditQuizForm';
 import MyQuizList from './MyQuizList';
 import NewQuizForm from './NewQuizForm';
-import { withFirestore } from 'react-redux-firebase'
 
 function CreateQuizControl(props) {
 

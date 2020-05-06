@@ -26,9 +26,7 @@ function TakeQuizForm(props) {
         responseTwo: event.target.responseTwo.value,
         responseThree: event.target.responseThree.value
       }
-        
     )
-    props.onQuizSelection();
   }
 
   

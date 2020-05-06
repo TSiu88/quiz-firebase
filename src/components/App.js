@@ -3,7 +3,7 @@ import './App.css';
 import Header from './Header';
 import QuizControl from './QuizControl';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { withFirestore, isLoaded } from 'react-redux-firebase';
+import { withFirestore } from 'react-redux-firebase';
 import firebase from 'firebase';
 
 function App() {
