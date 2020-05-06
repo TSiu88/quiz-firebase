@@ -17,8 +17,17 @@ function CreateQuizControl(props) {
     setNewQuizFormVisible(!newQuizFormVisible);
   }
 
-  const handleEditingFormVisible = () => {
-    setEditQuizFormVisible(!setEditQuizFormVisible);
+  const handleEditingFormVisible = (id) => {
+    console.log("handler for editing reached!");
+    // handleChangingSelectedQuiz(id);
+    setEditQuizFormVisible(true);
+    setMyQuizListVisible(false);
+    setNewQuizFormVisible(false);
+
+    // selectedQuiz != null
+    // editingFormVisible == true
+    // newQuizFormVisible == false
+    // myQuizList == false
   }
 
   const handleChangingSelectedQuiz = (id) => {
@@ -58,6 +67,7 @@ function CreateQuizControl(props) {
   const setVisibility = () => {
     if (editQuizFormVisible) {
       currentlyVisibleComponent = <EditQuizForm onEditingSubmit={handleEditingFormVisible} onQuizSelecton={handleChangingSelectedQuiz} quiz={selectedQuiz}/>
+      buttonText = "Back to My Quizzes";
     } else {
       if (newQuizFormVisible) {
         currentlyVisibleComponent =
@@ -65,9 +75,6 @@ function CreateQuizControl(props) {
             onNewQuizCreation={handleNewQuizFormVisible}
           />;
         buttonText = "Back to My Quizzes";
-        // } else if (editQuizFormVisible) {
-        // currentlyVisibleComponent = <EditQuizForm />;
-        // buttonText = "Back to My Surveys";
       } else {
         currentlyVisibleComponent = <MyQuizList onEditingSubmit={handleEditingFormVisible} onQuizSelecton={handleChangingSelectedQuiz} />;
         buttonText = "Create a Quiz";
