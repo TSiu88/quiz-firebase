@@ -94,29 +94,29 @@ Or simply go to this link: [Firebase Quiz](https://quiz-firebase-e2e5f.firebasea
 
 ### User Stories
 
-[x] A user should be able to create, update and delete a survey.
+- [x] A user should be able to create, update and delete a survey.
 
-[x] All surveys should be stored in the database.
+- [x] All surveys should be stored in the database.
 
-[x] A user should be able to fill out and submit surveys.
+- [x] A user should be able to fill out and submit surveys.
 
-[x] Survey results should be submitted to the database.
+- [x] Survey results should be submitted to the database.
 
-[x] A user should be able to sign up, sign in, and sign out.
+- [x] A user should be able to sign up, sign in, and sign out.
 
-[x] A user should have their own dashboard which lists the surveys they've created.
+- [x] A user should have their own dashboard which lists the surveys they've created.
 
 ### Further Exploration
 
-[x] As a developer, I want to deploy the application via Firebase.
+- [x] As a developer, I want to deploy the application via Firebase.
 
-[ ] As a developer, I want to be able to dynamically add a new question when creating a new quiz.
+- [ ] As a developer, I want to be able to dynamically add a new question when creating a new quiz.
 
-[ ] A user should be able to see the combined data on a survey in their dashboard. For instance, if a survey provides a 1-5 rating, return an average rating for all surveys.
+- [ ] A user should be able to see the combined data on a survey in their dashboard. For instance, if a survey provides a 1-5 rating, return an average rating for all surveys.
 
-[ ] Try using a library like D3 to visualize data from surveys. This is only recommended if you have time to spare, interest in data visualization, and are doing a week-long project.
+- [ ] Try using a library like D3 to visualize data from surveys. This is only recommended if you have time to spare, interest in data visualization, and are doing a week-long project.
 
-[ ] Show responses to each of the user's created quizzes within the "my quizzes" section.
+- [ ] Show responses to each of the user's created quizzes within the "my quizzes" section.
 
 ## Screenshots
 
@@ -151,11 +151,11 @@ _Tests are done through Jest and are run from the command line prompt with `npm 
 
 ## Known Bugs
 
-[ ] Upon Editing a quiz, the previous values for questions and answers are not shown. The quiz fields update correctly though.
+- [ ] Upon Editing a quiz, the previous values for questions and answers are not shown. The quiz fields update correctly though.
 
-[ ] On new account registration submission, the app automatically signs the user in. However, their displayName does not show up on their dashboard the first time they visit their dashboard. After signing out and in again, their name will show up on their dashboard.
+- [ ] On new account registration submission, the app automatically signs the user in. However, their displayName does not show up on their dashboard the first time they visit their dashboard. After signing out and in again, their name will show up on their dashboard.
 
-[ ] When not logged in "Go to My Quizzes" or "Take a quiz" opens a blank page
+- [ ] When not logged in "Go to My Quizzes" or "Take a quiz" opens a blank page
 
 ## Support and contact details
 
