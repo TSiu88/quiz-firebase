@@ -14,8 +14,12 @@ function CreateQuizControl(props) {
   // ================================================
 
   const handleNewQuizFormVisible = () => {
+    if(editQuizFormVisible){
+      setEditQuizFormVisible(false);
+    } else{
     setMyQuizListVisible(!myQuizListVisible);
     setNewQuizFormVisible(!newQuizFormVisible);
+    }
   }
 
   const handleEditingFormVisible = (id) => {
