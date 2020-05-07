@@ -30,7 +30,7 @@ function MyQuizList(props) {
             .map((quiz) => {
               return <Quiz
                 whenQuizClicked={props.onQuizSelection}
-                whenEditQuizClicked={props.onEditingSubmit}
+                whenEditQuizClicked={props.onClickEditQuiz}
                 whenDeleteQuizClicked={props.onDeletingQuiz}
                 quizName={quiz.quizName}
                 dateCreated={quiz.dateCreated}

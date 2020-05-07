@@ -1,13 +1,15 @@
+//https://www.debuggr.io/react-update-unmounted-component/
 import React from 'react';
 import { useFirestore } from 'react-redux-firebase';
 
-function EditQuizForm(props){
+function EditQuizForm(props) {
+
   const firestore = useFirestore();
   const { quiz } = props;
 
-  function handleEditQuizFormSubmission(event){
+  function handleEditQuizFormSubmission(event) {
     event.preventDefault();
-    props.onEditQuiz();
+    props.onEditingQuizSubmit();
     const propertiesToUpdate = {
       quizName: event.target.quizName.value,
       questionOne: event.target.questionOne.value,
@@ -23,7 +25,7 @@ function EditQuizForm(props){
       questionThree2: event.target.questionThree2.value,
       questionThree3: event.target.questionThree3.value,
     }
-    return firestore.update({collection: 'quizzes', doc: quiz.id}, propertiesToUpdate)
+    return firestore.update({ collection: 'quizzes', doc: quiz.id }, propertiesToUpdate)
   }
 
   return (
@@ -37,7 +39,7 @@ function EditQuizForm(props){
               className="form-control"
               type="text"
               name="quizName"
-              defaultValue= {quiz.quizName}
+              // value={quiz.quizName}
               required />
           </label>
         </div>
@@ -49,7 +51,8 @@ function EditQuizForm(props){
               className="form-control"
               type="text"
               name="questionOne"
-              defaultValue= {quiz.questionOne} />
+            // defaultValue={quiz.questionOne} />
+            />
           </label>
         </div>
         <div className="form-group">
@@ -59,7 +62,8 @@ function EditQuizForm(props){
               className="form-control"
               type="text"
               name="questionOne1"
-              defaultValue= {quiz.questionOne1} />
+            // defaultValue={quiz.questionOne1}
+            />
           </label>
         </div>
         <div className="form-group">
@@ -69,7 +73,8 @@ function EditQuizForm(props){
               className="form-control"
               type="text"
               name="questionOne2"
-              defaultValue= {quiz.questionOne2} />
+            // defaultValue={quiz.questionOne2} 
+            />
           </label>
         </div>
         <div className="form-group">
@@ -79,7 +84,8 @@ function EditQuizForm(props){
               className="form-control"
               type="text"
               name="questionOne3"
-              defaultValue= {quiz.questionOne3} />
+            // defaultValue={quiz.questionOne3} 
+            />
           </label>
         </div>
 
@@ -90,7 +96,8 @@ function EditQuizForm(props){
               className="form-control"
               type="text"
               name="questionTwo"
-              defaultValue= {quiz.questionTwo} />
+            // defaultValue={quiz.questionTwo} 
+            />
           </label>
         </div>
         <div className="form-group">
@@ -100,7 +107,8 @@ function EditQuizForm(props){
               className="form-control"
               type="text"
               name="questionTwo1"
-              defaultValue= {quiz.questionTwo1} />
+            // defaultValue={quiz.questionTwo1} 
+            />
           </label>
         </div>
         <div className="form-group">
@@ -110,7 +118,8 @@ function EditQuizForm(props){
               className="form-control"
               type="text"
               name="questionTwo2"
-              defaultValue= {quiz.questionTwo2} />
+            //       defaultValue={quiz.questionTwo2} 
+            />
           </label>
         </div>
         <div className="form-group">
@@ -120,7 +129,8 @@ function EditQuizForm(props){
               className="form-control"
               type="text"
               name="questionTwo3"
-              defaultValue= {quiz.questionTwo3} />
+            // defaultValue={quiz.questionTwo3} 
+            />
           </label>
         </div>
 
@@ -131,7 +141,8 @@ function EditQuizForm(props){
               className="form-control"
               type="text"
               name="questionThree"
-              defaultValue= {quiz.questionThree} />
+            // defaultValue={quiz.questionThree} 
+            />
           </label>
         </div>
         <div className="form-group">
@@ -141,7 +152,8 @@ function EditQuizForm(props){
               className="form-control"
               type="text"
               name="questionThree1"
-              defaultValue= {quiz.questionThree1} />
+            // defaultValue={quiz.questionThree1} 
+            />
           </label>
         </div>
         <div className="form-group">
@@ -151,7 +163,8 @@ function EditQuizForm(props){
               className="form-control"
               type="text"
               name="questionThree2"
-              defaultValue= {quiz.questionThree2} />
+            // defaultValue={quiz.questionThree2} 
+            />
           </label>
         </div>
         <div className="form-group">
@@ -161,7 +174,8 @@ function EditQuizForm(props){
               className="form-control"
               type="text"
               name="questionThree3"
-              defaultValue= {quiz.questionThree3} />
+            // defaultValue={quiz.questionThree3} 
+            />
           </label>
         </div>
 
