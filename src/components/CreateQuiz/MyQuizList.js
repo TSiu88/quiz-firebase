@@ -31,6 +31,7 @@ function MyQuizList(props) {
               return <Quiz
                 whenQuizClicked={props.onQuizSelection}
                 whenEditQuizClicked={props.onEditingSubmit}
+                whenDeleteQuizClicked={props.onDeletingQuiz}
                 quizName={quiz.quizName}
                 dateCreated={quiz.dateCreated}
                 id={quiz.id}

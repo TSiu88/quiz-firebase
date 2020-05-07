@@ -1,6 +1,6 @@
 # _[Firebase Quiz](https://github.com/ayohana/quiz-firebase)_
 
-#### _Intro to Firebase, 05.04.2020 - 05.06.2020_
+#### _Intro to Firebase, 05.04.2020 - 05.07.2020_
 
 #### By _**Tiffany Siu, Adela Darmansyah, Rachel Schieferstein, Andriy Veremyeyev**_
 
@@ -100,6 +100,7 @@ This is an application that allows a user to complete a quiz or survey. Users sh
 [x] A user should have their own dashboard which lists the surveys they've created.
 
 ### Further Exploration
+[ ] As a developer, I want to deploy the application via Firebase.
 [ ] As a developer, I want to be able to dynamically add a new question when creating a new quiz.
 [ ] A user should be able to see the combined data on a survey in their dashboard. For instance, if a survey provides a 1-5 rating, return an average rating for all surveys.
 [ ] Try using a library like D3 to visualize data from surveys. This is only recommended if you have time to spare, interest in data visualization, and are doing a week-long project.

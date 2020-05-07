@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import EditQuizForm from './EditQuizForm';
 import MyQuizList from './MyQuizList';
 import NewQuizForm from './NewQuizForm';
+import { withFirestore } from 'react-redux-firebase';
 
 function CreateQuizControl(props) {
 
@@ -28,6 +29,11 @@ function CreateQuizControl(props) {
     // editingFormVisible == true
     // newQuizFormVisible == false
     // myQuizList == false
+  }
+
+  const handleDeletingQuiz = (id) => {
+    props.firestore.delete({collection: 'quizzes', doc: id});
+    setQuiz(null);
   }
 
   const handleChangingSelectedQuiz = (id) => {
@@ -76,7 +82,7 @@ function CreateQuizControl(props) {
           />;
         buttonText = "Back to My Quizzes";
       } else {
-        currentlyVisibleComponent = <MyQuizList onEditingSubmit={handleEditingFormVisible} onQuizSelecton={handleChangingSelectedQuiz} />;
+        currentlyVisibleComponent = <MyQuizList onEditingSubmit={handleEditingFormVisible} onDeletingQuiz={handleDeletingQuiz} onQuizSelecton={handleChangingSelectedQuiz} />;
         buttonText = "Create a Quiz";
       }
     }
@@ -93,4 +99,4 @@ function CreateQuizControl(props) {
   );
 }
 
-export default CreateQuizControl;
+export default withFirestore(CreateQuizControl);
